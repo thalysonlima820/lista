@@ -31,7 +31,7 @@ if (isset($_POST['editar'])):
 
     $id = mysqli_escape_string($conexao, $_POST['id']);
 
-    $sql = "UPDATE produto SET produto = '$produto', vl = '$totalCompra'  WHERE id = '$id'";
+    $sql = "UPDATE produto SET produto = '$produto', qtd = '1'  , vl = '$totalCompra'  WHERE id = '$id'";
 
 
 
