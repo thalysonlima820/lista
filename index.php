@@ -14,7 +14,8 @@ if(isset($_POST['enviar'])){
 
         $qtd = mysqli_escape_string($conexao, $_POST['qtd']);
 
-        $sql = "INSERT INTO produto(produto, qtd) VALUE ('$produto', '$qtd')";
+        $sql = "INSERT INTO produto (produto, qtd, vl) VALUES ('$produto', '$qtd', 0.00)";
+
 
         if(mysqli_query($conexao, $sql)){
             header('location: index.php');
@@ -102,7 +103,6 @@ background-color: transparent;
 .tabelas{
     width: 200px;
     height: 80px;
-    background-color: white;
     margin: 10px;
     border-radius: 20px;
     margin-top: 10px;
@@ -187,36 +187,37 @@ background-color: transparent;
                         <th class="acoes tituu">Deletar</th>
                     </tr>
                 </thead >
-                <tbody id="resultado8" >
-                    <?php
-                    $sqll = "SELECT * FROM produto";
-                    $resutadol = mysqli_query($conexao, $sqll);
-                    while($dados = mysqli_fetch_array($resutadol)){
-                    ?>
-                    <tr  >
-                        <td class="conteudo" ><?php  echo $dados['produto'] ?></td>
-                        <td class="conteudo" ><?php  echo $dados['qtd'] ?></td>
-                        <td class="conteudo" ><?php  echo $dados['vl'] ?></td>
-                        <td class="acoes"><a href="kl.php?id=<?php  echo $dados['id'];  ?>" class=""><i class="">Mult</i></a></td>
-                       
+                <tbody id="resultado8">
+    <?php
+    $sqll = "SELECT * FROM produto";
+    $resutadol = mysqli_query($conexao, $sqll);
+    while ($dados = mysqli_fetch_array($resutadol)) {
+    ?>
+        <tr>
+            <td class="conteudo"><?php echo $dados['produto'] ?></td>
+            <td class="conteudo"><?php echo $dados['qtd'] ?></td>
+            <td class="conteudo">
+                <?php
+                // Verificar se o campo 'vl' é numérico antes de exibi-lo
+                if (is_numeric($dados['vl'])) {
+                    echo $dados['vl'];
+                } else {
+                    echo 'Valor inválido';
+                }
+                ?>
+            </td>
+            <td class="acoes"><a href="kl.php?id=<?php echo $dados['id']; ?>"><i class="">Mult</i></a></td>
+            <td class="acoes"><a href="editar.php?id=<?php echo $dados['id']; ?>" class="btn-floating orange"><i class="">Editar</i></a></td>
+            <td class="acoes">
+                <form action="deletar.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $dados['id']; ?>">
+                    <button class="bbtt" type="submit" name="deletar" class="btn red"><i class="">Deletar</i></button>
+                </form>
+            </td>
+        </tr>
+    <?php } ?>
+</tbody>
 
-
-
-
-                        <td class="acoes"><a href="editar.php?id=<?php  echo $dados['id'];  ?>" class="btn-floating orange"><i class="">Editar</i></a></td>
-                       
-                            
-                           
-                           <td class="acoes"> <form action="deletar.php" method="POST">
-                                <input type="hidden" name="id" value="<?php  echo $dados['id'];?>" >
-                                <button class="bbtt" type="submit" name="deletar" class="btn red"> <i class=" ">Deletar</i></button>
-
-
-                                </form></td>
-                           
-                    </tr>
-                    <?php  } ?>
-                </tbody>
             </table>
         </div>
 
