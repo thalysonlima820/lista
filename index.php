@@ -43,11 +43,11 @@ if(isset($_POST['enviar'])){
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de compras</title>
     <style>
         .tabela{
             margin-top: 50px;
