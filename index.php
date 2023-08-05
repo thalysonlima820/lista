@@ -129,6 +129,9 @@ background-color: transparent;
     text-decoration: none;
     color:black;
 }
+.ico{
+    font-size: 1.5em;
+}
     </style>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -211,11 +214,11 @@ background-color: transparent;
                 ?>
             </td>
             <td class="acoes"><a href="kl.php?id=<?php echo $dados['id']; ?>"><i class="">Mult</i></a></td>
-            <td class="acoes"><a href="editar.php?id=<?php echo $dados['id']; ?>" class="btn-floating orange"><i class="">Editar</i></a></td>
+            <td class="acoes"><a href="editar.php?id=<?php echo $dados['id']; ?>" class="btn-floating orange"><i ><ion-icon class="ico" name="create-outline"></ion-icon></i></a></td>
             <td class="acoes">
                 <form action="deletar.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $dados['id']; ?>">
-                    <button class="bbtt" type="submit" name="deletar" class="btn red"><i class=""> <ion-icon name="trash-outline"></ion-icon></i></button>
+                    <button class="bbtt" type="submit" name="deletar" class="btn red"><i class=""> <ion-icon class="ico" name="trash-outline"></ion-icon></i></button>
                 </form>
             </td>
         </tr>
