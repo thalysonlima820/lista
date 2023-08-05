@@ -131,6 +131,9 @@ background-color: transparent;
 }
     </style>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 </head>
 <body>
 
@@ -212,7 +215,7 @@ background-color: transparent;
             <td class="acoes">
                 <form action="deletar.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $dados['id']; ?>">
-                    <button class="bbtt" type="submit" name="deletar" class="btn red"><i class="">Deletar</i></button>
+                    <button class="bbtt" type="submit" name="deletar" class="btn red"><i class=""> <ion-icon name="trash-outline"></ion-icon></i></button>
                 </form>
             </td>
         </tr>
