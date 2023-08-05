@@ -188,19 +188,19 @@ background-color: transparent;
                     </tr>
                 </thead >
                 <tbody id="resultado8">
-    <?php
-    $sqll = "SELECT * FROM produto";
-    $resutadol = mysqli_query($conexao, $sqll);
-    while ($dados = mysqli_fetch_array($resutadol)) {
-    ?>
-        <tr>
-            <td class="conteudo"><?php echo $dados['produto'] ?></td>
-            <td class="conteudo"><?php echo $dados['qtd'] ?></td>
-            <td class="conteudo">
+                    <?php
+                    $sqll = "SELECT * FROM produto";
+                    $resutadol = mysqli_query($conexao, $sqll);
+                    while ($dados = mysqli_fetch_array($resutadol)) {
+                    ?>
+                <tr>
+                    <td class="conteudo"><?php echo $dados['produto'] ?></td>
+                    <td class="conteudo"><?php echo $dados['qtd'] ?></td>
+                    <td class="conteudo">
                 <?php
                 // Verificar se o campo 'vl' é numérico antes de exibi-lo
                 if (is_numeric($dados['vl'])) {
-                    echo $dados['vl'];
+                    echo number_format($dados['vl'], 2, ',', '.');
                 } else {
                     echo 'Valor inválido';
                 }
@@ -217,6 +217,7 @@ background-color: transparent;
         </tr>
     <?php } ?>
 </tbody>
+
 
             </table>
         </div>
