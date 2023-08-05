@@ -10,10 +10,10 @@ if(isset($_POST['deletar'])):
     $sqli = "DELETE FROM produto WHERE id = '$id'";
 
     if(mysqli_query($conexao, $sqli)):
-       echo "Deletado com Sucesso!";
+
        header('location: index.php');
     else:
-       echo "Erro!";
+
        header('location: index.php');
     endif;
 endif;
