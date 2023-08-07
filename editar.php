@@ -31,10 +31,10 @@ endif;
 
 <br>
             <label  class="incl1" for="qtd" >Quantidade:</label>
-            <input type="text" name="qtd" class="incl" value=" <?php  echo $dados['qtd'];   ?>">
+            <input type="number" name="qtd" class="incl" value=" <?php  echo $dados['qtd'];   ?>">
 <br>
             <label  class="incl1" for="vl" >Valor:</label>
-            <input type="text" name="vl" class="incl" value=" <?php  echo $dados['vl'];   ?>">
+            <input type="number" name="vl" class="incl" value=" <?php  echo $dados['vl'];   ?>">
 
 <br>
 <br>
