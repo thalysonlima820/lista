@@ -59,30 +59,42 @@ if(isset($_POST['enviar'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de compras</title>
-    <link rel="stylesheet" href="css.css">
+   <link rel="stylesheet" href="css.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+<style>
+    
+</style>
 </head>
 <body>
+    <div class="centro">
 
-<h1>LISTA <?php echo $nomeUsuario; ?></h1>
+<h1 class="titulo">LISTA <?php echo $nomeUsuario; ?>
+<a id="novo" href="usuario.php">novo</a></h1>
 
 
-    <form action="index.php" method="post" class="formulario">
-        <label for="texto">Adicionar Produto:</label>
-        <input type="text" id="add" name="produto">
+
+   
+<form action="index.php" method="post" class="formulario">
+        <div id="add">
+            <input type="text"  name="produto">
+            <label for="texto">Adicionar Produto:</label>
+        </div>
+      
     <br>
+    <div  id="add">
+        <input type="number" step="0.01" name="qtd">
         <label for="texto">Quantidade:</label>
-        <input type="number" step="0.01" id="add" name="qtd">
-        <input type="submit" value="+" name="enviar" >
+    </div>
+       
+        <input type="submit" value="Adicionar" name="enviar" id="btn">
     </form>
 <br>
 <br>
 
 
-    <a href="usuario.php">novo</a>
+
 
     <div class="tabelas">
         <h3 class="txt">TOTAL</h3>
@@ -143,7 +155,7 @@ if(isset($_POST['enviar'])){
                 }
                 ?>
             </td>
-            <td class="acoes"><a href="kl.php?id=<?php echo $dados['id']; ?>"><i class="">Mult</i></a></td>
+            <td class="acoes"><a href="kl.php?id=<?php echo $dados['id']; ?>"><i class="multi">Mult</i></a></td>
             <td class="acoes"><a href="editar.php?id=<?php echo $dados['id']; ?>" class="btn-floating orange"><i ><ion-icon class="ico" name="create-outline"></ion-icon></i></a></td>
             <td class="acoes">
                 <form action="deletar.php" method="POST">
@@ -162,7 +174,7 @@ if(isset($_POST['enviar'])){
         </div>
 
        
-    
+        </div>
 </body>
 
 
