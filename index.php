@@ -82,7 +82,7 @@ if(isset($_POST['enviar'])){
 <br>
 
 
-    <a href="sair.php">novo</a>
+    <a href="usuario.php">novo</a>
 
     <div class="tabelas">
         <h3 class="txt">TOTAL</h3>
