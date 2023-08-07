@@ -32,10 +32,9 @@ endif;
 <br>
             <label  class="incl1" for="qtd" >Quantidade:</label>
             <input type="number" step="0.01" name="qtd" class="incl" value="<?php echo number_format($dados['qtd'], 2, '.', ''); ?>">
-
+<br>
             <label  class="incl1" for="vl" >Valor:</label>
-            <input type="number" step="0.01" name="vl" class="incl" value="<?php echo number_format($dados['vl'], 2, '.', ''); ?>">
-
+            <input type="number" step="0.01" name="vl" class="incl" value=" <?php  echo $dados['vl'];   ?>">
 
 <br>
 <br>
