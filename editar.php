@@ -20,7 +20,7 @@ endif;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>valor</title>
     <style>
         *{
         padding: 0;
@@ -199,7 +199,7 @@ endif;
 <body>
 
 <form  action="update.php" method="post"  class="login">
-        <h2>PESO</h2>
+        <h2>edição</h2>
         <input type="hidden" name="id" value="<?php  echo $dados['id'];?>" >
         <div class="box_user">
             <input type="text" name="produto" class="incl" value=" <?php  echo $dados['produto'];   ?>">
