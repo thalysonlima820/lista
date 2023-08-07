@@ -8,7 +8,7 @@ if (isset($_SESSION['nome_usuario'])) {
     $nomeUsuario = $_SESSION['nome_usuario'];
 } else {
     // Redireciona para o cadastro se o nome de usuário não estiver na sessão
-    header('location: cadastro.php');
+    header('location: usuario.php');
     exit();
 }
 
