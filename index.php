@@ -91,7 +91,7 @@ if(isset($_POST['enviar'])){
    // Após adicionar um novo produto
    // ...
 
-   $sql_sum = "SELECT SUM(qtd * vl) AS soma FROM produto";
+   $sql_sum = "SELECT SUM(qtd * vl) AS soma FROM produto where usuario = '$nomeUsuario'";
    $resul_sum = mysqli_query($conexao, $sql_sum);
    $dados_sum = mysqli_fetch_array($resul_sum);
    
