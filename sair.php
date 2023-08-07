@@ -1,0 +1,13 @@
+<?php
+
+session_start(); 
+
+include_once('conexao.php');
+
+
+session_start();
+session_destroy();
+
+
+header('location: usuario.php'); 
+?>

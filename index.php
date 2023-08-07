@@ -4,6 +4,15 @@ session_start();
 include_once('conexao.php');
 
 
+if (isset($_SESSION['nome_usuario'])) {
+    $nomeUsuario = $_SESSION['nome_usuario'];
+} else {
+    // Redireciona para o cadastro se o nome de usuário não estiver na sessão
+    header('location: cadastro.php');
+    exit();
+}
+
+
 if(isset($_POST['enviar'])){
 
     // Verificar se o campo 'qtd' foi preenchido
@@ -14,7 +23,9 @@ if(isset($_POST['enviar'])){
 
         $qtd = mysqli_escape_string($conexao, $_POST['qtd']);
 
-        $sql = "INSERT INTO produto (produto, qtd, vl) VALUES ('$produto', '$qtd', '')";
+        $nomeUsuario = $_SESSION['nome_usuario'];
+
+        $sql = "INSERT INTO produto (produto, qtd, vl, usuario) VALUES ('$produto', '$qtd', '', '$nomeUsuario')";
 
 
         if(mysqli_query($conexao, $sql)){
@@ -48,91 +59,7 @@ if(isset($_POST['enviar'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de compras</title>
-    <style>
-        .tabela{
-            margin-top: 50px;
-            position: absolute;
-    align-items: center;
-    justify-content: center;
-        }
-        
- table, th, td{
-
-border-collapse: collapse;
-padding: 5px 2px 5px 2px;
-
-}
-table{
-width: 100px;
-}
-.conteudo{
-align-items: left;
-
-}
-.acoes{
-text-align: center;
-}
-
-.titu{
-border-top-left-radius: 10px;
-
-}
-.tituu{
-border-top-right-radius: 10px;
-
-}
-
-
-th{
-background-color: #264696;
-}
-td{
-background-color: white;
-color: black;
-border: 1px solid #444;
-padding: 10px;
-}
-tr:hover{
-background-color: #5e84e2;
-}
-.bbtt{
-border: none;
-background-color: transparent;
-}
-
-.tabelas{
-    width: 200px;
-    height: 80px;
-    margin: 10px;
-    border-radius: 20px;
-    margin-top: 10px;
-}
-.txt{
-    z-index: 999;
-    color: black;
-}
-.tabelas p{
-    color: black;
-    font-size: 2em;
-    
-    justify-content: center;
-    margin-top: 10px ;
-}
-.tet{
-    
-}
-.bt{
-    border:none;
-    background: transparent;
-}
-.acoes a{
-    text-decoration: none;
-    color:black;
-}
-.ico{
-    font-size: 1.5em;
-}
-    </style>
+    <link rel="stylesheet" href="css.css">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -140,7 +67,7 @@ background-color: transparent;
 </head>
 <body>
 
-
+<h1>LISTA <?php echo $nomeUsuario; ?></h1>
 
 
     <form action="index.php" method="post" class="formulario">
@@ -151,8 +78,11 @@ background-color: transparent;
         <input type="number" id="add" name="qtd">
         <input type="submit" value="+" name="enviar" >
     </form>
+<br>
+<br>
 
 
+    <a href="sair.php">novo</a>
 
     <div class="tabelas">
         <h3 class="txt">TOTAL</h3>
@@ -195,7 +125,7 @@ background-color: transparent;
                 </thead >
                 <tbody id="resultado8">
     <?php
-    $sqll = "SELECT * FROM produto";
+    $sqll = "SELECT * FROM produto where usuario = '$nomeUsuario'";
     $resutadol = mysqli_query($conexao, $sqll);
     while ($dados = mysqli_fetch_array($resutadol)) {
     ?>

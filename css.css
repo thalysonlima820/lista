@@ -1,0 +1,84 @@
+
+.tabela{
+    margin-top: 50px;
+    position: absolute;
+align-items: center;
+justify-content: center;
+}
+
+table, th, td{
+
+border-collapse: collapse;
+padding: 5px 2px 5px 2px;
+
+}
+table{
+width: 100px;
+}
+.conteudo{
+align-items: left;
+
+}
+.acoes{
+text-align: center;
+}
+
+.titu{
+border-top-left-radius: 10px;
+
+}
+.tituu{
+border-top-right-radius: 10px;
+
+}
+
+
+th{
+background-color: #264696;
+}
+td{
+background-color: white;
+color: black;
+border: 1px solid #444;
+padding: 10px;
+}
+tr:hover{
+background-color: #5e84e2;
+}
+.bbtt{
+border: none;
+background-color: transparent;
+}
+
+.tabelas{
+width: 200px;
+height: 80px;
+margin: 10px;
+border-radius: 20px;
+margin-top: 10px;
+}
+.txt{
+z-index: 999;
+color: black;
+}
+.tabelas p{
+color: black;
+font-size: 2em;
+
+justify-content: center;
+margin-top: 10px ;
+}
+.tet{
+
+}
+.bt{
+border:none;
+background: transparent;
+}
+.acoes a{
+text-decoration: none;
+color:black;
+}
+.ico{
+font-size: 1.5em;
+}
