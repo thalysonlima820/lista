@@ -14,7 +14,7 @@ if(isset($_POST['enviar'])){
 
         $qtd = mysqli_escape_string($conexao, $_POST['qtd']);
 
-        $sql = "INSERT INTO produto (produto, qtd, vl) VALUES ('$produto', '$qtd', 0.00)";
+        $sql = "INSERT INTO produto (produto, qtd, vl) VALUES ('$produto', '$qtd', '')";
 
 
         if(mysqli_query($conexao, $sql)){
