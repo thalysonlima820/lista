@@ -75,7 +75,7 @@ if(isset($_POST['enviar'])){
         <input type="text" id="add" name="produto">
     <br>
         <label for="texto">Quantidade:</label>
-        <input type="number" id="add" name="qtd">
+        <input type="number" step="0.01" id="add" name="qtd">
         <input type="submit" value="+" name="enviar" >
     </form>
 <br>

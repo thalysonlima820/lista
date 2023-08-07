@@ -31,10 +31,10 @@ endif;
 
 <br>
             <label  class="incl1" for="kl" >Valor do KL:</label>
-            <input type="number" name="kl" class="incl" value=" ">
+            <input type="number" name="kl" class="incl" step="0.01" value=" ">
 <br>
             <label  class="incl1" for="val" >KL:</label>
-            <input type="number" name="val" class="incl" value=" ">
+            <input type="number" name="val" class="incl" step="0.01" value=" ">
 
 <br>
 <br>
